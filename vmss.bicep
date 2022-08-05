@@ -39,26 +39,26 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2022-03-01' = {
       ]
     }
     virtualMachineProfile: {
-      extensionProfile: {
-        extensions: [
-          {
-            name: 'Microsoft.Azure.DevOps.Pipelines.Agent'
-            properties: {
-              autoUpgradeMinorVersion: true
-              publisher: 'Microsoft.VisualStudio.Services'
-              type: 'TeamServicesAgentLinux'
-              typeHandlerVersion: '1.22'
-              settings: {
-                  isPipelinesAgent: true
-                  agentFolder: '/agent'
-                  agentDownloadUrl: 'https://vstsagentpackage.azureedge.net/agent/2.206.1/vsts-agent-linux-x64-2.206.1.tar.gz'
-                  #disable-next-line no-hardcoded-env-urls
-                  enableScriptDownloadUrl: 'https://vstsagenttools.blob.core.windows.net/tools/ElasticPools/Linux/13/enableagent.sh'
-              }
-            }
-          }
-        ]
-      }
+      // extensionProfile: {
+      //   extensions: [
+      //     {
+      //       name: 'Microsoft.Azure.DevOps.Pipelines.Agent'
+      //       properties: {
+      //         autoUpgradeMinorVersion: true
+      //         publisher: 'Microsoft.VisualStudio.Services'
+      //         type: 'TeamServicesAgentLinux'
+      //         typeHandlerVersion: '1.22'
+      //         settings: {
+      //             isPipelinesAgent: true
+      //             agentFolder: '/agent'
+      //             agentDownloadUrl: 'https://vstsagentpackage.azureedge.net/agent/2.206.1/vsts-agent-linux-x64-2.206.1.tar.gz'
+      //             #disable-next-line no-hardcoded-env-urls
+      //             enableScriptDownloadUrl: 'https://vstsagenttools.blob.core.windows.net/tools/ElasticPools/Linux/13/enableagent.sh'
+      //         }
+      //       }
+      //     }
+      //   ]
+      // }
       diagnosticsProfile: {
         bootDiagnostics: {
           enabled: true

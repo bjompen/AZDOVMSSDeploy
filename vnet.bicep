@@ -8,6 +8,8 @@ param addressPrefixes array = [
   '10.1.0.0/16'
 ]
 
+param subnetAddressPrefix string = '10.1.0.0/24'
+
 resource vnet 'Microsoft.Network/virtualNetworks@2022-01-01' = {
   name: name
   location: location
@@ -19,7 +21,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2022-01-01' = {
       {
         name: '${name}-subnet'
         properties: {
-          addressPrefix: '10.1.0.0/24'
+          addressPrefix: subnetAddressPrefix
           networkSecurityGroup: {
             id: nsg.id
           }
